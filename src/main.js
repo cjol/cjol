@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Counter from './Counter';
-import Nameplate from './Nameplate';
+import Content from './Content';
 
 document.addEventListener('DOMContentLoaded', function() {
 	ReactDOM.render(
-		React.createElement(Nameplate),
+		React.createElement(Content),
 		document.getElementById('root')
 	);
 });

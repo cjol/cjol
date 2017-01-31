@@ -1,4 +1,5 @@
 import React from 'react';
+import Radium from 'radium';
 
 /**
  * A nameplate: Just shows my name and some links
@@ -11,15 +12,49 @@ class Nameplate extends React.Component {
 	}
 
 	render() {
+		const links = [
+			{link: "https://github.com/cjol", name: "Github"},
+			{link: "https://linkedin.com/in/cjolittle", name: "LinkedIn"},
+			{link: "https://twitter.com/cjolittle", name: "Twitter"},
+		]
+
+		const styles = {
+			link: {
+				color: this.props.colors.base1,
+				":hover":  {
+					color:  this.props.colors.magenta
+				}
+			}
+		}
 		return (
-			<div style={{backgroundColor:"#002B36",color:"#839496", fontFamily:"monospace", height:"100%", border: "10px solid #839496", margin:0, boxSizing:"border-box", textAlign:"center", position:"relative"}}>
-				<div style={{height:20, width:"100%", textAlign: "center", lineHeight:"20px", verticalAlign:"middle", position:"absolute", "top": "50%", "margin-top":-10}}>
-					Christopher J. O. Little (@cjol) | Entrepreneur &amp; Full-stack Developer&nbsp;|&nbsp;
-					<a href="https://github.com/cjol" target="_blank" style={{color:"#839496"}}>Github ↗</a>&nbsp;|&nbsp;
-					<a href="https://linkedin.com/in/cjolittle" target="_blank" style={{color:"#839496"}}>LinkedIn ↗</a>&nbsp;
+			<div style={{
+				position: "relative",
+				width:"100%",
+				top: "30%",
+				left: "50%",
+				transform: "translate(-50%, -50%)"
+			}}>
+				<img src="img/sig.png" style={{
+					width: "auto",
+					height: 170
+				}}/>
+				<div style={{
+					textAlign: "center",
+				}}>
+
+					Christopher J. O. Little (@cjol) |
+					Entrepreneur &amp; Full-stack Developer |&nbsp;
+					{links.map( (l,i) =>
+						<span key={i}>
+							{i>0?<span> | </span>:<span/>}
+							<a href={l.link} key={i} target="_blank" style={styles.link}>
+								{l.name} ↗
+							</a>
+						</span>
+					)}
 				</div>
 			</div>
 		);
 	}
 }
-export default Nameplate;
+export default Radium(Nameplate);
