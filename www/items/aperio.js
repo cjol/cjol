@@ -106,5 +106,6 @@ Hackathons are severely time-limited events, with the direction of movement cons
 To cope with this, I wrote a quick abstraction over SQL, to avoid us needing to constantly create new API endpoints. I am however
 very aware that this code has security vulnerabilities (although connection.query does internally escape the SQL created to minimise
 some of the risk of SQL injection).
-`
+`,
+order: 7
 }

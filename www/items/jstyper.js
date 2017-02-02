@@ -67,5 +67,6 @@ JSTyper has a formal rule specification, which can be mathematically proven to h
 the translation of one of these formal rules into JavaScript. Specifically, it is the rule for type-checking object literals. An
 object literal is checked by recursively checking the types of all its values. The remaining rules are all visible here:
 <a href="https://github.com/cjol/jstyper/blob/master/src/judgements.js">Github Link</a>
-	`
+	`,
+	order: 5
 }

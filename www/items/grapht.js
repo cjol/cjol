@@ -96,4 +96,5 @@ class LookaheadMultiPrefetcher(hops: Int)
 		(n, ns.toList)
 	}
 }`,
+order: 1
 }

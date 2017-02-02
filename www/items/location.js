@@ -145,5 +145,6 @@ Promise.all( [
 			json2csv( { data: results, fields: Object.keys( results[ 0 ] ) } ) );
 	} )
 `,
-	"codeDescription": "A glimpse into my quick \"gets the job done\" style of coding."
+	"codeDescription": "A glimpse into my quick \"gets the job done\" style of coding.",
+	order: 4
 }

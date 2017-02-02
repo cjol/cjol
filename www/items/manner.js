@@ -72,5 +72,6 @@ const GoalEventType = new GraphQLObjectType( {
 
 export default GoalEventType;
 `,
-	"codeDescription": "Manner was my first in-depth exploration into ES6. I also set up extensive linting, type-checking and enforced a strict code style. Below, I have included a sample of my code following this style."
+	"codeDescription": "Manner was my first in-depth exploration into ES6. I also set up extensive linting, type-checking and enforced a strict code style. Below, I have included a sample of my code following this style.",
+	order: 2
 }

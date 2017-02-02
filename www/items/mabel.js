@@ -102,8 +102,9 @@ BEGIN
 		C.wl < 1;
 
 	-- Finally return details to the caller so they know what happened
-	-- N.B. The insert ID is maintained in the server on a per-connection basis. 
+	-- N.B. The insert ID is maintained in the server on a per-connection basis.
 	SELECT LAST_INSERT_ID() AS insertId, ROW_COUNT() AS rowsAffected;
 END//
 `,
+order: 6
 }

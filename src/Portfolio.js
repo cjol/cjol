@@ -8,6 +8,7 @@ class Portfolio extends React.Component {
 		if (this.props.items) {
 			items =
 				this.props.items
+					.sort( (a,b) => a.order - b.order )
 					.map( (p,i) =>
 						<PortfolioItem key={i} {...p} colors={this.props.colors} setModal={this.props.setModal}/>
 					)

@@ -135,5 +135,6 @@ console.log("Jambox running on port " + config.port );
 `,
 	"codeDescription": `I use express and Node for almost every project, so it would be remiss not to include an example in my portfolio.
 	Again, this was a hackathon example, so not necessarily the cleanest implementation. It does a bit of fun stuff with sockets, but
-	that's about all the interest going on here!`
+	that's about all the interest going on here!`,
+	order: 8
 }
