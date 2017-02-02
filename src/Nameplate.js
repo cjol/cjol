@@ -34,15 +34,18 @@ class Nameplate extends React.Component {
 				left: "50%",
 				transform: "translate(-50%, -50%)"
 			}}>
-				<img src="img/sig.png" style={{
+				<img src="img/cjol.png" id="sig" style={{
 					width: "auto",
-					height: 170
+					height: 230,
+					paddingBottom: 20
 				}}/>
 				<div style={{
 					textAlign: "center",
 				}}>
 
-					Christopher J. O. Little (@cjol) |
+					<h1 style={{display:"inline", fontSize:"1em"}}>
+						Christopher J. O. Little (@cjol)
+					</h1> |
 					Entrepreneur &amp; Full-stack Developer |&nbsp;
 					{links.map( (l,i) =>
 						<span key={i}>

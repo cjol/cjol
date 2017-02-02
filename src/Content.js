@@ -1,11 +1,13 @@
 import React from 'react';
 import Nameplate from './Nameplate.js';
 import Portfolio from './Portfolio.js';
+import PortfolioModal from './PortfolioModal.js';
 
 class Content extends React.Component {
 	constructor() {
 		super();
 		this.state = {
+			modalItem: null
 		};
 	}
 
@@ -29,6 +31,7 @@ class Content extends React.Component {
 			cyan: "#2aa198",
 			green: "#859900",
 		}
+		const setModal = i => this.setState({modalItem: i});
 
 		return <div style={{
 			backgroundColor: colors.base03,
@@ -44,8 +47,9 @@ class Content extends React.Component {
 
 			<Nameplate colors={colors}/>
 
-			<Portfolio colors={colors}/>
+			<Portfolio colors={colors} setModal={setModal}/>
 
+			<PortfolioModal colors={colors} item={this.state.modalItem} setModal={setModal}/>
 		</div>
 
 	}

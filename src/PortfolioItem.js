@@ -1,38 +1,16 @@
 import React from 'react';
 import Radium from 'radium';
-import color from 'color';
 
-class Portfolio extends React.Component {
-	constructor() {
-		super();
-		this.state = {
-			count: 0,
-			hover: false
-		};
-	}
+class PortfolioItem extends React.Component {
 
 	render() {
 
 		const styles = {
-			figure: {
-				position: "relative",
-				display: "inline-block",
-				overflow: "hidden",
-				margin: "10px 1%",
-				minWidth: 300,
-				maxWidth: 480,
-				maxHeight: 360,
-				width: "30%",
-				height: 200,
-				textAlign: "center",
-				cursor: "pointer",
-				backgroundColor: this.props.colors.base01
-			},
 			img: {
 				position: "relative",
 				display: "block",
-				maxWidth: "112%",
-				minHeight: "100%",
+				minWidth: "112%",
+				height: "100%",
 				opacity: 0.6,
 				transition: "opacity 0.35s, transform 0.35s",
 				transform: "translate3d(-30px,0,0) scale(1.12)",
@@ -81,6 +59,20 @@ class Portfolio extends React.Component {
 				position: "absolute",
 				top: 20,
 				left: 20
+			},
+			figure: {
+				position: "relative",
+				display: "inline-block",
+				overflow: "hidden",
+				margin: "10px 1%",
+				minWidth: 300,
+				maxWidth: 480,
+				maxHeight: 360,
+				width: "30%",
+				height: 200,
+				textAlign: "center",
+				cursor: "pointer",
+				backgroundColor: this.props.colors.base01
 			}
 		}
 		let hovers = {
@@ -94,27 +86,26 @@ class Portfolio extends React.Component {
 			}
 		}
 
-		if (!this.state.hover) {
+		if (!this.props.hover) {
 			hovers = {};
 		}
 
-		return (
-			<figure key={`${this.props.item.slug}-figure`} style={styles.figure}
-				onMouseEnter={()=>this.setState({hover:true})}
-				onMouseLeave={()=>this.setState({hover:false})}
-				>
-				<img key={`${this.props.item.slug}-img`} style={[styles.img, hovers.img]} src={`./img/screenshots/${this.props.item.slug}.png`} alt={this.props.item.name} />
-				<figcaption key={`${this.props.item.slug}-caption`} style={styles.caption}>
-					<h2 key={`${this.props.item.slug}-name`} style={styles.name}>{this.props.item.name}</h2>
-					<p key={`${this.props.item.slug}-p`} style={[styles.description, hovers.description]}>
+		return <figure style={styles.figure}
+			onMouseEnter={()=>this.setState({hover:true})}
+			onMouseLeave={()=>this.setState({hover:false})}
+			>
+				<img key={`${this.props.slug}-img`} style={[styles.img, hovers.img]} src={this.props.img} alt={this.props.name} />
+				<figcaption key={`${this.props.slug}-caption`} style={styles.caption}>
+					<h2 key={`${this.props.slug}-name`} style={styles.name}>{this.props.name}</h2>
+					<p key={`${this.props.slug}-p`} style={[styles.description, hovers.description]}>
 						<span style={{backgroundColor:this.props.colors.base03, padding:"2px" }}>
-							{this.props.item.desc}
+							{this.props.desc}
 						</span>
 					</p>
-					<a key={`${this.props.item.slug}-link`} href="#" style={styles.link}>View more</a>
+					<a key={`${this.props.slug}-link`} href="#" style={styles.link} onClick={(e) => this.props.setModal(this.props)}>View more</a>
 				</figcaption>
 			</figure>
-		);
 	}
 }
-export default Radium(Portfolio);
+
+export default Radium(PortfolioItem);
